@@ -1,0 +1,12 @@
+print("Pravin Kumar Verma")
+import requests
+import json
+username = 'KumarPravin-1'
+token = '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'
+repos_url = 'https://api.github.com/user/repos'
+gh_session = requests.Session()
+gh_session.auth = (username, token)
+repos = json.loads(gh_session.get(repos_url).text)
+# print the repo names
+for repo in repos:
+    print(repo['name'])

@@ -1,0 +1,6 @@
+print("Pravin Kumar Verma")
+import requests
+url = 'http://api.open-notify.org/astros.json'
+resp = requests.get(url)
+data = resp.json()
+print(data)

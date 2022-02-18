@@ -1,0 +1,15 @@
+print("Pravin Kumar Verma")
+import wmi
+import pandas as pd
+f = wmi.WMI()
+print("pid   Process name")
+pid = []
+psname = []
+for process in f.Win32_Process():
+    print(f"{process.ProcessId} {process.Name}")
+    pid.append(process.ProcessId)
+    psname.append(process.Name)
+data={'PID':pid, 'Name':psname}
+wr=pd.DataFrame(data)
+wr.to_csv('GetProcessDetails.csv')
+wr.to_html('GetProcessDetails.html')
